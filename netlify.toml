@@ -1,12 +1,12 @@
 [build]
-  command = "mkdir -p .output/public && npm run prisma:setup && npm run build"
-  publish = ".output/public"
-  functions = ".output/server"
+  command = "npm run prisma:setup && npm run build"
+  publish = "dist"
+  functions = ".netlify/functions-internal/server"
 
 [build.environment]
   NODE_VERSION = "20"
 
-# API redirects - redirect all API requests to our Netlify function
+# API redirects - redirect all API requests to our custom Netlify function
 [[redirects]]
   from = "/api/*"
   to = "/.netlify/functions/api/:splat"
@@ -18,8 +18,8 @@
   to = "/.netlify/functions/trpc/:splat"
   status = 200
 
-# For Nuxt SSR - redirect all other requests to the Nuxt handler
+# For Nuxt SSR - redirect all requests to the Netlify Nitro server function
 [[redirects]]
   from = "/*"
-  to = "/.netlify/functions/server"
+  to = "/.netlify/builders/.netlify/functions-internal/server"
   status = 200 

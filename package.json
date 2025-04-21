@@ -11,6 +11,7 @@
     "prisma:setup": "prisma generate"
   },
   "dependencies": {
+    "@netlify/functions": "^3.1.2",
     "@nuxt/ui": "^3.0.2",
     "@prisma/client": "^6.6.0",
     "@prisma/nuxt": "^0.3.0",
