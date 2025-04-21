@@ -2,6 +2,13 @@
 export default defineNuxtConfig({
   compatibilityDate: '2024-11-01',
   devtools: { enabled: true },
+  vite: {
+    resolve: {
+      alias: {
+        '.prisma': './node_modules/.prisma',
+      },
+    },
+  },
   modules: ['@nuxtjs/tailwindcss'],
   tailwindcss: {
     cssPath: '~/assets/css/tailwind.css',
@@ -9,5 +16,5 @@ export default defineNuxtConfig({
   },
   typescript: {
     strict: true
-  }
+  },
 })

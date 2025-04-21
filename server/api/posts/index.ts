@@ -1,4 +1,4 @@
-import { PrismaClient } from '@prisma/client'
+import { PrismaClient } from '@/prisma/generated/client'
 import { defineEventHandler, readBody } from 'h3'
 
 const prisma = new PrismaClient()

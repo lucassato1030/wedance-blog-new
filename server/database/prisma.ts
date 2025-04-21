@@ -1,4 +1,4 @@
-import { PrismaClient } from '@prisma/client'
+import { PrismaClient } from '@/prisma/generated/client'
 
 // Create a global prisma instance to avoid multiple connections in development
 // See: https://www.prisma.io/docs/guides/performance-and-optimization/connection-management
