@@ -1,14 +1,10 @@
 [build]
   command = "mkdir -p .output/public && npm run prisma:setup && npm run build"
   publish = ".output/public"
-  functions = "netlify/functions"
+  functions = ".output/server"
 
 [build.environment]
   NODE_VERSION = "20"
-
-[functions]
-  directory = "netlify/functions"
-  node_bundler = "esbuild"
 
 # API redirects - redirect all API requests to our Netlify function
 [[redirects]]
@@ -25,5 +21,5 @@
 # For Nuxt SSR - redirect all other requests to the Nuxt handler
 [[redirects]]
   from = "/*"
-  to = "/.netlify/builders/server"
+  to = "/.netlify/functions/server"
   status = 200 

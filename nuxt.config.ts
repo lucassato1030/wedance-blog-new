@@ -18,11 +18,16 @@ export default defineNuxtConfig({
     },
   },
   
-  // Configure Nitro for Netlify hosting
+  // Configure Nitro specifically for Netlify hosting
   nitro: {
     preset: 'netlify',
   },
   
-  // Keep SSR enabled (this is the default)
+  // Explicitly enable SSR
   ssr: true,
+
+  // Update Netlify build output format
+  routeRules: {
+    '/**': { ssr: true }
+  }
 })
