@@ -17,4 +17,13 @@ export default defineNuxtConfig({
   typescript: {
     strict: true
   },
+  nitro: {
+    preset: 'netlify',
+    prerender: {
+      crawlLinks: true,
+      routes: [
+        '/',
+      ]
+    }
+  },
 })
