@@ -1,7 +1,7 @@
 [build]
   command = "mkdir -p .output/public && npm run prisma:setup && npm run build"
   publish = ".output/public"
-  functions = "netlify/functions"
+  functions = ".output/server"
 
 [build.environment]
   NODE_VERSION = "20"
@@ -18,8 +18,8 @@
   to = "/.netlify/functions/trpc/:splat"
   status = 200
 
-# Handle SPA routing - must be last
+# For SSR - this redirects all requests to the Netlify function that handles SSR
 [[redirects]]
   from = "/*"
-  to = "/index.html"
+  to = "/.netlify/functions/server"
   status = 200 
