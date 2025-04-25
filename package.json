@@ -9,7 +9,7 @@
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
     "prisma:setup": "prisma generate",
-    "netlify": "prisma generate && nuxt build",
+    "netlify": "set NITRO_PRESET=netlify && prisma generate && nuxt build",
     "netlify:dev": "netlify dev"
   },
   "dependencies": {
