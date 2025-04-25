@@ -1,28 +1,17 @@
 [build]
-  command = "npm run netlify"
+  command = "npm run prisma:setup && npm run build"
   publish = "dist"
-  functions = ".netlify/functions-internal/server"
-
+  
 [build.environment]
   NODE_VERSION = "20"
-  # Setting this to ensure file URLs work correctly on Windows
-  NITRO_PRESET = "netlify"
 
-# API redirects - redirect all API requests to our custom Netlify function
-[[redirects]]
-  from = "/api/*"
-  to = "/.netlify/functions-internal/server/api/:splat"
-  status = 200
-
-# tRPC redirects
-[[redirects]]
-  from = "/api/trpc/*"
-  to = "/.netlify/functions-internal/server/api/trpc/:splat"
-  status = 200
-
-# For Nuxt SSR - this should ensure all routes work correctly
 [[redirects]]
   from = "/*"
-  to = "/.netlify/functions-internal/server"
+  to = "/.netlify/functions/server"
   status = 200
-  force = true 
+  
+[dev]
+  framework = "nuxt"
+  command = "npm run dev"
+  port = 3000
+  targetPort = 3000 
