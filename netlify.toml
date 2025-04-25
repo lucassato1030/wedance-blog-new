@@ -1,33 +1,28 @@
-export default defineNuxtConfig({
-  compatibilityDate: '2024-11-01',
-  devtools: { enabled: true },
-  modules: ['@nuxtjs/tailwindcss'],
-  tailwindcss: {
-    cssPath: '~/assets/css/tailwind.css',
-    configPath: 'tailwind.config.js',
-  },
-  typescript: {
-    strict: true
-  },
-  vite: {
-    resolve: {
-      alias: {
-        '.prisma': './node_modules/.prisma',
-      },
-    },
-  },
-  
-  // Configure Nitro specifically for Netlify hosting
-  nitro: {
-    preset: 'netlify'
-    // Removed prerender config to avoid Windows path issues
-  },
-  
-  // Explicitly enable SSR
-  ssr: true,
+[build]
+  command = "npm run netlify"
+  publish = "dist"
+  functions = ".netlify/functions-internal/server"
 
-  // Update route rules to make sure root path is properly handled
-  routeRules: {
-    '/**': { ssr: true }
-  }
-})
+[build.environment]
+  NODE_VERSION = "20"
+  # Setting this to ensure file URLs work correctly on Windows
+  NITRO_PRESET = "netlify"
+
+# API redirects - redirect all API requests to our custom Netlify function
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions-internal/server/api/:splat"
+  status = 200
+
+# tRPC redirects
+[[redirects]]
+  from = "/api/trpc/*"
+  to = "/.netlify/functions-internal/server/api/trpc/:splat"
+  status = 200
+
+# For Nuxt SSR - this should ensure all routes work correctly
+[[redirects]]
+  from = "/*"
+  to = "/.netlify/functions-internal/server"
+  status = 200
+  force = true 
