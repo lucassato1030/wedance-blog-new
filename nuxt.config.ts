@@ -20,12 +20,8 @@ export default defineNuxtConfig({
   
   // Configure Nitro specifically for Netlify hosting
   nitro: {
-    preset: 'netlify',
-    // Add this to ensure proper SSR handling
-    prerender: {
-      crawlLinks: true,
-      routes: ['/']
-    }
+    preset: 'netlify'
+    // Removed prerender config to avoid Windows path issues
   },
   
   // Explicitly enable SSR
@@ -33,7 +29,6 @@ export default defineNuxtConfig({
 
   // Update route rules to make sure root path is properly handled
   routeRules: {
-    '/**': { ssr: true },
-    '/': { prerender: true }
+    '/**': { ssr: true }
   }
 })
