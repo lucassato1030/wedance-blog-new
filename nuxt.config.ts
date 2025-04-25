@@ -1,4 +1,3 @@
-// https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   compatibilityDate: '2024-11-01',
   devtools: { enabled: true },
@@ -18,16 +17,12 @@ export default defineNuxtConfig({
     },
   },
   
-  // Configure Nitro specifically for Netlify hosting
   nitro: {
     preset: 'netlify'
-    // Removed prerender config to avoid Windows path issues
   },
   
-  // Explicitly enable SSR
   ssr: true,
 
-  // Update route rules to make sure root path is properly handled
   routeRules: {
     '/**': { ssr: true }
   }
