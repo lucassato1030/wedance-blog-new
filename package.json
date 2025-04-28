@@ -7,8 +7,9 @@
     "dev": "nuxt dev",
     "generate": "prisma generate && nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "prisma generate && nuxt prepare",
-    "prisma:setup": "prisma generate"
+    "postinstall": "nuxt prepare && prisma generate",
+    "prisma:setup": "prisma generate",
+    "netlify:build": "nuxt prepare && prisma generate && nuxt build"
   },
   "dependencies": {
     "@netlify/functions": "^3.1.2",

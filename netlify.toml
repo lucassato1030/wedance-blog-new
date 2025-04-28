@@ -1,9 +1,13 @@
 [build]
-  command = "npm run build"
+  command = "npm run netlify:build"
   publish = ".output/public"
   
 [build.environment]
   NODE_VERSION = "20"
+  NPM_FLAGS = "--no-audit --production=false"
+
+[[plugins]]
+package = "@netlify/plugin-nextjs"
 
 [[redirects]]
   from = "/*"
