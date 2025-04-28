@@ -9,7 +9,7 @@
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare && prisma generate",
     "prisma:setup": "prisma generate",
-    "netlify:build": "nuxt prepare && prisma generate && nuxt build"
+    "netlify:build": "nuxt prepare && prisma generate && nuxt build && echo '/* /.netlify/functions-internal/server 200' > dist/_redirects"
   },
   "dependencies": {
     "@netlify/functions": "^3.1.2",

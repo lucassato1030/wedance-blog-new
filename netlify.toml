@@ -1,5 +1,5 @@
 [build]
-  command = "npm run build"
+  command = "npm run netlify:build"
   publish = "dist"
   
 [build.environment]
@@ -8,10 +8,13 @@
 
 [[redirects]]
   from = "/*"
-  to = "/.netlify/functions/server"
+  to = "/.netlify/functions-internal/server"
   status = 200
   force = true
   
+[functions]
+  directory = ".netlify/functions-internal/server"
+
 [dev]
   framework = "nuxt"
   command = "npm run dev"
