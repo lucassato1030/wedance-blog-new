@@ -22,3 +22,14 @@ logs
 .env
 .env.*
 !.env.example
+
+[Window Title]
+Cursor
+
+[Main Instruction]
+Are you sure you want to paste 4 lines of text into the terminal?
+
+# Netlify specific
+.netlify/functions-serve
+.netlify/.netlify
+.netlify/state.json
