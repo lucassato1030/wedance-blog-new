@@ -5,6 +5,7 @@
 [build.environment]
   NODE_VERSION = "20"
   NPM_FLAGS = "--no-audit --production=false"
+  NITRO_PRESET = "netlify"
 
 [[redirects]]
   from = "/*"
@@ -13,10 +14,10 @@
   force = true
   
 [functions]
-  directory = ".netlify/functions-internal/server"
+  directory = ".netlify/functions-internal"
 
 [dev]
   framework = "nuxt"
   command = "npm run dev"
   port = 3000
-  targetPort = 3000 
+  targetPort = 3000

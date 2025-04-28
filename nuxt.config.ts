@@ -22,9 +22,6 @@ export default defineNuxtConfig({
     routeRules: {
       '/**': { cache: { swr: true, maxAge: 120, staleMaxAge: 60, headersOnly: true } }
     },
-    alias: {
-      '.prisma': './node_modules/.prisma'
-    },
     externals: {
       inline: ['@prisma/client', '@prisma/engines-version']
     }
