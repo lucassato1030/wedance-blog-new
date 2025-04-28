@@ -3,14 +3,12 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "nuxt build",
+    "build": "prisma generate && nuxt build",
     "dev": "nuxt dev",
-    "generate": "nuxt generate",
+    "generate": "prisma generate && nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare",
-    "prisma:setup": "prisma generate",
-    "netlify": "set NITRO_PRESET=netlify && prisma generate && nuxt build",
-    "netlify:dev": "netlify dev"
+    "postinstall": "prisma generate && nuxt prepare",
+    "prisma:setup": "prisma generate"
   },
   "dependencies": {
     "@netlify/functions": "^3.1.2",

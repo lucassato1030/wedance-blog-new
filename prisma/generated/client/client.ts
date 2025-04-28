@@ -63,11 +63,12 @@ const config: runtime.GetPrismaClientConfig = {
     "db"
   ],
   "activeProvider": "postgresql",
+  "postinstall": false,
   "inlineDatasources": {
     "db": {
       "url": {
         "fromEnvVar": "DATABASE_URL",
-        "value": "postgresql://postgres.ndqyqnpkunmammfotaeu:maksym113355@aws-0-us-west-1.pooler.supabase.com:5432/postgres"
+        "value": null
       }
     }
   },
