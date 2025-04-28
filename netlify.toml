@@ -7,14 +7,15 @@
   NPM_FLAGS = "--no-audit --production=false"
   NITRO_PRESET = "netlify"
 
+# This redirect is crucial for client-side routing and handling all routes
 [[redirects]]
   from = "/*"
   to = "/.netlify/functions-internal/server"
   status = 200
-  force = true
   
 [functions]
   directory = ".netlify/functions-internal"
+  node_bundler = "esbuild"
 
 [dev]
   framework = "nuxt"
